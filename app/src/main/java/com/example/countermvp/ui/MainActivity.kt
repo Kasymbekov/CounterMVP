@@ -35,17 +35,17 @@ class MainActivity : AppCompatActivity(), CounterView {
         binding.counter.text = count.toString()
     }
 
-    override fun showToast(num: Int) {
-        if (num == 10) {
-            Toast.makeText(this, "Поздравляем!", Toast.LENGTH_SHORT).show()
-        }
+    override fun showToast() {
+        Toast.makeText(this, "Поздравляем!", Toast.LENGTH_SHORT).show()
     }
 
-    override fun changeColor(count: Int) {
-        if (count == 15) {
-            binding.counter.setTextColor(Color.GREEN)
-        } else {
-            binding.counter.setTextColor(Color.GRAY)
-        }
+    override fun toGreenText() {
+        binding.counter.setTextColor(Color.GREEN)
     }
+
+    override fun toGrayText() {
+        binding.counter.setTextColor(Color.GRAY)
+    }
+
+
 }

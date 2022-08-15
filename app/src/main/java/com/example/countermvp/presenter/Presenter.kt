@@ -10,20 +10,25 @@ class Presenter {
 
     fun increment() {
         model.increment()
-        view.showToast(model.count)
-        view.changeColor(model.count)
         view.updateText(model.count)
+        checkCounter()
     }
 
     fun decrement() {
         model.decrement()
-        view.showToast(model.count)
-        view.changeColor(model.count)
         view.updateText(model.count)
+        checkCounter()
     }
 
     fun attachView(view: CounterView) {
         this.view = view
     }
 
+    private fun checkCounter() {
+        when (model.count) {
+            10 -> view.showToast()
+            15 -> view.toGreenText()
+            else -> view.toGrayText()
+        }
+    }
 }
